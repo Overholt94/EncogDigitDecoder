@@ -116,6 +116,7 @@ public class MainFrame extends JFrame implements ActionListener{
         saveItem.addActionListener(this);
         trainNetwork.addActionListener(this);
         getSizeItem.addActionListener(this);
+        recognize.addActionListener(this);
 
         pack();
         setVisible(true);
@@ -176,8 +177,8 @@ public class MainFrame extends JFrame implements ActionListener{
                 trainData[i] = loadSave.getDataAt(i);
                 trainLabel[i] = loadSave.getLabelAt(i);
             }else{
-                valiData[i] = loadSave.getDataAt(i);
-                valiLabel[i] = loadSave.getLabelAt(i);
+                valiData[i-(totalSize-validSize)] = loadSave.getDataAt(i);
+                valiLabel[i-(totalSize-validSize)] = loadSave.getLabelAt(i);
             }
         }
         MLDataSet trainDataSet = new BasicMLDataSet(trainData, trainLabel);
@@ -194,7 +195,7 @@ public class MainFrame extends JFrame implements ActionListener{
      * Callback for starting to recognize digits
      */
     public void recognize(){
-
+        neuralNetworkTrainer.recognize();
     }
 
     /**
@@ -279,6 +280,8 @@ public class MainFrame extends JFrame implements ActionListener{
             trainNetwork(0.1);
         }else if(src == getSizeItem){
             JOptionPane.showMessageDialog(null, "Current #Elements in Savefile: " + loadSave.getSize());
+        }else if(src == recognize){
+            recognize();
         }
     }
 

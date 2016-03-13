@@ -11,8 +11,19 @@ public class DrawPanel extends JPanel {
     /**
      * Size of each Rectangle (for the HIT array)
      */
-    public final static int DIM_X = 50,
-                            DIM_Y = 40;
+    public final static int DIM_X = 10,
+                            DIM_Y = 10;
+
+    /**
+     * The rectangle in which to draw the digit
+     */
+    public static final int REC_WIDTH = 250,
+                            REC_HEIGHT = 250;
+    public static final int REC_Y_OFFSET = 100;
+    public static final int REC_STROKE_WIDTH = 10;
+    public static final int REC_STROKE_HEIGHT = 10;
+
+    Rectangle drawDigit;
 
     /**
      * The parent view
@@ -28,17 +39,6 @@ public class DrawPanel extends JPanel {
      * All stored strokes
      */
     ArrayList<Rectangle> strokes;
-
-    /**
-     * The rectangle in which to draw the digit
-     */
-    public static final int REC_WIDTH = 250,
-                            REC_HEIGHT = 250;
-    public static final int REC_Y_OFFSET = 100;
-    public static final int REC_STROKE_WIDTH = 10;
-    public static final int REC_STROKE_HEIGHT = 10;
-
-    Rectangle drawDigit;
 
     public DrawPanel(MainFrame mainFrame){
         this.mainFrame = mainFrame;

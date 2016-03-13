@@ -2,6 +2,8 @@ package com.company;
 
 import org.encog.engine.network.activation.ActivationBiPolar;
 import org.encog.engine.network.activation.ActivationFunction;
+import org.encog.ml.data.MLData;
+import org.encog.ml.data.MLDataPair;
 import org.encog.ml.data.MLDataSet;
 import org.encog.neural.networks.BasicNetwork;
 import org.encog.neural.networks.layers.BasicLayer;
@@ -29,6 +31,9 @@ public class NeuralNetworkTrainer {
      * Validation set for training data
      */
     MLDataSet validationSet;
+
+    public NeuralNetworkTrainer(){
+    }
 
     /**
      * Gets best trained network
@@ -63,7 +68,7 @@ public class NeuralNetworkTrainer {
 
         int hiddenLayerNeuronsCount = 400; // 100-200
         int hiddenLayerCount = 2;
-        int epochsCount = 2000;
+        int epochsCount = 200;
 
         // Get
         BasicNetwork network = new BasicNetwork();
@@ -95,5 +100,16 @@ public class NeuralNetworkTrainer {
         train.finishTraining();
 
         this.bestNetwork = network;
+    }
+
+    public void recognize(){
+        if(bestNetwork == null){
+            return;
+        }
+        for(MLDataPair pair : validationSet){
+            final MLData output = bestNetwork.compute(pair.getInput());
+            System.out.println("Predicted:" + Analyzer.analyzeDigitEncoding(output.getData()) + ", Ideal: " + Analyzer.analyzeDigitEncoding(pair.getIdeal().getData()));
+        }
+
     }
 }
