@@ -1,16 +1,19 @@
 package com.company;
 
-import org.encog.engine.network.activation.ActivationBiPolar;
-import org.encog.engine.network.activation.ActivationFunction;
+import org.encog.engine.network.activation.*;
 import org.encog.ml.data.MLData;
 import org.encog.ml.data.MLDataPair;
 import org.encog.ml.data.MLDataSet;
+import org.encog.ml.data.basic.BasicMLDataSet;
 import org.encog.neural.networks.BasicNetwork;
 import org.encog.neural.networks.layers.BasicLayer;
 import org.encog.neural.networks.training.propagation.Propagation;
 import org.encog.neural.networks.training.propagation.back.Backpropagation;
+import org.encog.neural.networks.training.propagation.manhattan.ManhattanPropagation;
+import org.encog.neural.networks.training.propagation.quick.QuickPropagation;
 import org.encog.persist.EncogDirectoryPersistence;
 
+import javax.swing.*;
 import java.io.File;
 
 /**
@@ -77,7 +80,7 @@ public class NeuralNetworkTrainer {
         network.addLayer(new BasicLayer(null, true, inputSize));
 
         // (Many different activation functions)
-        final ActivationFunction activationFunction = new ActivationBiPolar();
+        final ActivationFunction activationFunction = new ActivationSigmoid();
 
         // add hidden layer
         for(int i=0;i<hiddenLayerCount;i++) {
@@ -90,25 +93,35 @@ public class NeuralNetworkTrainer {
 
 
         //(many different propagation functions)
-        final Propagation train = new Backpropagation(network, trainingSet);
+        final Propagation train = new QuickPropagation(network, trainingSet);
 
         for(int epoch = 1; epoch <= epochsCount; epoch++)
         {
             train.iteration();
-            System.out.println("Epoch #" + epoch + " Error:" + train.getError());
+            //train2.iteration();
+            //train3.iteration();
+            System.out.println("Backpropagation: " + train.getError());
+            //System.out.println("ManhattanPropagation: " + train2.getError());
+            //System.out.println("QuickPropagation: " + train3.getError());
+            System.out.println("------- Cycle " + epoch);
         }
         train.finishTraining();
 
         this.bestNetwork = network;
     }
 
-    public void recognize(){
+    public void recognize(double[] data, double[] label){
         if(bestNetwork == null){
             return;
         }
-        for(MLDataPair pair : validationSet){
+        double[][]dataSet = new double[1][data.length];
+        double[][]labelSet = new double[1][label.length];
+        dataSet[0] = data;
+        labelSet[0] = label;
+        MLDataSet mldata = new BasicMLDataSet(dataSet,labelSet);
+        for(MLDataPair pair : mldata){
             final MLData output = bestNetwork.compute(pair.getInput());
-            System.out.println("Predicted:" + Analyzer.analyzeDigitEncoding(output.getData()) + ", Ideal: " + Analyzer.analyzeDigitEncoding(pair.getIdeal().getData()));
+            JOptionPane.showMessageDialog(null, "Predicted:" + Analyzer.analyzeDigitEncodingWithUncertainty(output.getData()) + ", Ideal: " + Analyzer.analyzeDigitEncodingWithUncertainty(pair.getIdeal().getData()));
         }
 
     }

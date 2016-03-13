@@ -48,6 +48,18 @@ public class Analyzer {
         }
         return -1;
     }
+    public static int analyzeDigitEncodingWithUncertainty(double[] labels){
+        double max = 0;
+        int maxIndex = 0;
+        for(int i=0;i<labels.length;i++){
+            if(labels[i]>max){
+                max = labels[i];
+                maxIndex = i;
+            }
+            System.out.println("Probability for " + i + ": " + labels[i]);
+        }
+        return maxIndex;
+    }
 
     public static double[] createDigitEncoding(int digit){
         if(digit<0 || digit>9){

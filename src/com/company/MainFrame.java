@@ -125,7 +125,7 @@ public class MainFrame extends JFrame implements ActionListener{
     /**
      * Callback for submitting data
      */
-    public void submit(){
+    public void submit(boolean isClear){
         double[] hitArray = Analyzer.analyzeScreen(myDrawing);
 
         if(hitArray == null){
@@ -148,7 +148,9 @@ public class MainFrame extends JFrame implements ActionListener{
                 JOptionPane.showMessageDialog(null,  ex.getMessage() + " Discarding!");
             }
         }
-        myDrawing.clearScreen();
+        if(isClear){
+            myDrawing.clearScreen();
+        }
     }
 
     /**
@@ -195,7 +197,10 @@ public class MainFrame extends JFrame implements ActionListener{
      * Callback for starting to recognize digits
      */
     public void recognize(){
-        neuralNetworkTrainer.recognize();
+        submit(false);
+        double[] data = loadSave.getDataAt(loadSave.getSize()-1);
+        double[] label = loadSave.getLabelAt(loadSave.getSize()-1);
+        neuralNetworkTrainer.recognize(data, label);
     }
 
     /**
@@ -263,7 +268,7 @@ public class MainFrame extends JFrame implements ActionListener{
         Object src = e.getSource();
 
         if(src == submit){
-            submit();
+            submit(true);
         }else if(src == recognize) {
             recognize();
         } else if(src == saveItem){
