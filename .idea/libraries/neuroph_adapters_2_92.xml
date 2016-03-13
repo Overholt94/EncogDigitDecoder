@@ -1,0 +1,37 @@
+<component name="libraryTable">
+  <library name="neuroph-adapters-2.92">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-adapters-2.92.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-contrib-2.92.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-core-2.92.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-imgrec-2.92.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-ocr-2.92.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-samples-2.92.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/jul-to-slf4j-1.7.18.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/slf4j-api-2.0.99.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/jcl-over-slf4j-1.7.18.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/slf4j-migrator-1.7.18.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/osgi-over-slf4j-1.7.18.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/slf4j-ext-1.7.18.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/slf4j-jdk14-1.7.18.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/junit-3.8.1.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/log4j-over-slf4j-1.7.18.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-2.92.zip!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-2.92.zip!/neuroph-2.92/doc/apidocs" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-2.92.zip!/neuroph-2.92/sources/neuroph-2.92/Core/target/site/apidocs" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-2.92.zip!/neuroph-2.92/sources/neuroph-2.92/Adapters/src/main/java" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-2.92.zip!/neuroph-2.92/sources/neuroph-2.92/Contrib/src/main/java" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-2.92.zip!/neuroph-2.92/sources/neuroph-2.92/Contrib/src/test/java" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-2.92.zip!/neuroph-2.92/sources/neuroph-2.92/Core/src/main/java" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-2.92.zip!/neuroph-2.92/sources/neuroph-2.92/Core/src/test/java" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-2.92.zip!/neuroph-2.92/sources/neuroph-2.92/ImageRec/src/main/java" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-2.92.zip!/neuroph-2.92/sources/neuroph-2.92/OCR/src/main/java" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-2.92.zip!/neuroph-2.92/sources/neuroph-2.92/Samples/src/main/java" />
+      <root url="jar://$USER_HOME$/Desktop/neuroph-2.92/neuroph-2.92.zip!/neuroph-2.92/sources/neuroph-2.92/Samples/src/test/java" />
+    </SOURCES>
+  </library>
+</component>
